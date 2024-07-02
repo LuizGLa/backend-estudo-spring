@@ -1,7 +1,11 @@
 package com.lcode.demo_park_api.service;
 
 import com.lcode.demo_park_api.entity.Usuario;
+import com.lcode.demo_park_api.exception.EntityNotFoundException;
+import com.lcode.demo_park_api.exception.PasswordInvalidException;
+import com.lcode.demo_park_api.exception.UsernameUniqueViolationException;
 import com.lcode.demo_park_api.repository.UsuarioRepository;
+
 import lombok.RequiredArgsConstructor;
 
 import java.util.List;
@@ -16,7 +20,11 @@ public class UsuarioService {
 
     @Transactional
     public Usuario salvar(Usuario usuario) {
+        try {
         return usuarioRepository.save(usuario);
+    } catch (org.springframework.dao.DataIntegrityViolationException ex) {
+        throw new UsernameUniqueViolationException(String.format("Username '%s' já existe", usuario.getUsername()));
+    }
     }
 
     @Transactional(readOnly = true)
@@ -27,13 +35,20 @@ public class UsuarioService {
     @Transactional(readOnly = true)
     public Usuario buscarPorId(Long id) {
         return usuarioRepository.findById(id).orElseThrow(
-                () -> new RuntimeException("Usuário não encontrado"));
+                () -> new EntityNotFoundException(String.format("Usuário com id '%s' não encontrado", id)));
     }
 
     @Transactional
-    public Usuario editarSenha(Long id, String password) {
+    public Usuario editarSenha(Long id, String senhaAtual, String novaSenha, String confirmaSenha) {
+        if (!novaSenha.equals(confirmaSenha)) {
+            throw new PasswordInvalidException("As senhas não conferem");
+        }
         Usuario user = buscarPorId(id);
-        user.setPassword(password);
+
+        if (!user.getPassword().equals(senhaAtual)) {
+            throw new PasswordInvalidException("Senha atual incorreta");
+        }
+        user.setPassword(novaSenha);
         return user;
     }
 }
