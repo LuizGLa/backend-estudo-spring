@@ -37,13 +37,14 @@ public class UsuarioController {
 
     @Operation(summary = "Buscar um usuário por ID")
     @GetMapping("/{id}")
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('ADMIN') OR (hasRole('CLIENTE') AND #id ==  authentication.principal.id)")
     public ResponseEntity<UsuarioResponseDto> getById(@PathVariable Long id) {
         Usuario user = usuarioService.buscarPorId(id);
         return ResponseEntity.ok(UsuarioMapper.toDto(user));
     }
 
     @Operation(summary = "Buscar todos os usuários")
+    @PreAuthorize("hasRole('ADMIN')")
     @GetMapping
     public ResponseEntity<List<UsuarioResponseDto>> getAllUsers() {
         List<Usuario> users = usuarioService.buscarTodos();
@@ -52,6 +53,7 @@ public class UsuarioController {
 
     @Operation(summary = "Atualizar a senha de um usuário")
     @PatchMapping("editar-senha/{id}")
+    @PreAuthorize("hasAnyRole('ADMIN', 'CLIENTE') AND (#id == authentication.principal.id)")
     public ResponseEntity<Void> updatePassword(@PathVariable Long id, @Valid @RequestBody UsuarioSenhaDto dto) {
         Usuario user = usuarioService.editarSenha(id, dto.getSenhaAtual(), dto.getNovaSenha(), dto.getConfirmaSenha());
         if (user == null) {
