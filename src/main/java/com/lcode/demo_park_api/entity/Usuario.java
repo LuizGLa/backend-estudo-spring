@@ -17,7 +17,6 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 @Setter
 @NoArgsConstructor
 @Entity
-
 @Table(name = "usuarios")
 @EntityListeners(AuditingEntityListener.class)
 public class Usuario implements Serializable {
