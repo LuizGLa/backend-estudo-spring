@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import com.lcode.demo_park_api.exception.EntityNotFoundException;
 import com.lcode.demo_park_api.exception.PasswordInvalidException;
 import com.lcode.demo_park_api.exception.PlacaUniquesException;
+import com.lcode.demo_park_api.exception.RuaUniquesException;
 import com.lcode.demo_park_api.exception.UsernameUniqueViolationException;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -49,7 +50,8 @@ public class ApiExceptionHandler {
                                 .body(new ErroMessage(request, HttpStatus.NOT_FOUND, ex.getMessage()));
         }
 
-        @ExceptionHandler({ UsernameUniqueViolationException.class, PlacaUniquesException.class })
+        @ExceptionHandler({ UsernameUniqueViolationException.class, PlacaUniquesException.class,
+                        RuaUniquesException.class })
         public ResponseEntity<ErroMessage> uniqueViolationException(RuntimeException ex, HttpServletRequest request) {
                 log.error("Api Error - ", ex);
                 return ResponseEntity
