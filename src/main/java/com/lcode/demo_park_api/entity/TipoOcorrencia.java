@@ -31,7 +31,7 @@ public class TipoOcorrencia implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "descricao", nullable = false, length = 100)
+    @Column(name = "descricao", unique = true, nullable = false, length = 100)
     private String descricao;
 
     @CreatedDate
