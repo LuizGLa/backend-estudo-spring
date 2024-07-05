@@ -43,6 +43,15 @@ public class Ocorrencia implements Serializable {
     @Column(name = "localizacao", nullable = false, length = 255)
     private String localizacao;
 
+    @Column(name = "data_hora", nullable = false)
+    private LocalDateTime dataHora;
+
+    @Column(name = "latitude", nullable = false)
+    private String latitude;
+
+    @Column(name = "longitude", nullable = false)
+    private String longitude;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "tipo_ocorrencia_id", nullable = false)
     private TipoOcorrencia tipoOcorrencia;
@@ -50,6 +59,10 @@ public class Ocorrencia implements Serializable {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "rua_id", nullable = false)
     private Rua rua;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "usuario_id", nullable = false)
+    private Usuario usuario;
 
     @CreatedDate
     @Column(name = "data_criacao")
