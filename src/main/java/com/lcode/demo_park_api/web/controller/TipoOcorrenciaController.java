@@ -16,8 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.lcode.demo_park_api.entity.TipoOcorrencia;
 import com.lcode.demo_park_api.service.TipoOcorrenciaService;
-import com.lcode.demo_park_api.web.dto.TipoOcorrenciaCreateDto;
-import com.lcode.demo_park_api.web.dto.TipoOcorrenciaResponseDto;
+import com.lcode.demo_park_api.web.dto.tipo_ocorrencia.TipoOcorrenciaCreateDto;
+import com.lcode.demo_park_api.web.dto.tipo_ocorrencia.TipoOcorrenciaResponseDto;
 import com.lcode.demo_park_api.web.dto.mapper.TipoOcorrenciaMapper;
 
 import io.swagger.v3.oas.annotations.Operation;

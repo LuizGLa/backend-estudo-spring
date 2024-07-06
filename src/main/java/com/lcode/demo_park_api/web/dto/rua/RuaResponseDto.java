@@ -1,6 +1,5 @@
-package com.lcode.demo_park_api.web.dto;
+package com.lcode.demo_park_api.web.dto.rua;
 
-import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 
 @Getter
@@ -9,10 +8,7 @@ import lombok.*;
 @AllArgsConstructor
 public class RuaResponseDto {
 
-    @NotBlank
     private Long id;
-
-    @NotBlank
     private String nome;
 
 }

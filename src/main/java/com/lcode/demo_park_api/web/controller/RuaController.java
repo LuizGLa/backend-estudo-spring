@@ -16,9 +16,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.lcode.demo_park_api.entity.Rua;
 import com.lcode.demo_park_api.service.RuaService;
-import com.lcode.demo_park_api.web.dto.RuaCreateDto;
-import com.lcode.demo_park_api.web.dto.RuaResponseDto;
 import com.lcode.demo_park_api.web.dto.mapper.RuaMapper;
+import com.lcode.demo_park_api.web.dto.rua.RuaCreateDto;
+import com.lcode.demo_park_api.web.dto.rua.RuaResponseDto;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;

@@ -3,10 +3,10 @@ package com.lcode.demo_park_api.web.controller;
 import com.lcode.demo_park_api.entity.Usuario;
 // import com.lcode.demo_park_api.repository.UsuarioRepository;
 import com.lcode.demo_park_api.service.UsuarioService;
-import com.lcode.demo_park_api.web.dto.UsuarioCreateDto;
-import com.lcode.demo_park_api.web.dto.UsuarioResponseDto;
-import com.lcode.demo_park_api.web.dto.UsuarioSenhaDto;
 import com.lcode.demo_park_api.web.dto.mapper.UsuarioMapper;
+import com.lcode.demo_park_api.web.dto.usuario.UsuarioCreateDto;
+import com.lcode.demo_park_api.web.dto.usuario.UsuarioResponseDto;
+import com.lcode.demo_park_api.web.dto.usuario.UsuarioSenhaDto;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;

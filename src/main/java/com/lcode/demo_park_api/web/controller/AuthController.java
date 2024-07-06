@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.lcode.demo_park_api.jwt.JwtToken;
 import com.lcode.demo_park_api.jwt.JwtUserDetailsService;
-import com.lcode.demo_park_api.web.dto.UsuarioLoginDto;
+import com.lcode.demo_park_api.web.dto.usuario.UsuarioLoginDto;
 import com.lcode.demo_park_api.web.exception.ErroMessage;
 
 @Slf4j

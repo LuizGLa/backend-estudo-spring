@@ -1,4 +1,4 @@
-package com.lcode.demo_park_api.web.dto;
+package com.lcode.demo_park_api.web.dto.usuario;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;

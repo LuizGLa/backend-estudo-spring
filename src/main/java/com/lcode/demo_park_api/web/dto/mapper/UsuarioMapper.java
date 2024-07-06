@@ -7,8 +7,8 @@ import org.modelmapper.ModelMapper;
 import org.modelmapper.PropertyMap;
 
 import com.lcode.demo_park_api.entity.Usuario;
-import com.lcode.demo_park_api.web.dto.UsuarioCreateDto;
-import com.lcode.demo_park_api.web.dto.UsuarioResponseDto;
+import com.lcode.demo_park_api.web.dto.usuario.UsuarioCreateDto;
+import com.lcode.demo_park_api.web.dto.usuario.UsuarioResponseDto;
 
 public class UsuarioMapper {
 

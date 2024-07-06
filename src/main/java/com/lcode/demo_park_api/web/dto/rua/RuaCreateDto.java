@@ -1,4 +1,4 @@
-package com.lcode.demo_park_api.web.dto;
+package com.lcode.demo_park_api.web.dto.rua;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;

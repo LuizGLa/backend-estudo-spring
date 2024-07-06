@@ -1,6 +1,5 @@
-package com.lcode.demo_park_api.web.dto;
+package com.lcode.demo_park_api.web.dto.tipo_ocorrencia;
 
-import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 
 @Getter
@@ -9,10 +8,7 @@ import lombok.*;
 @AllArgsConstructor
 public class TipoOcorrenciaResponseDto {
 
-    @NotBlank
     private Long id;
-
-@NotBlank
-private String descricao;
+    private String descricao;
 
 }

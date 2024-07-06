@@ -6,8 +6,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import com.lcode.demo_park_api.entity.TipoOcorrencia;
-import com.lcode.demo_park_api.web.dto.TipoOcorrenciaCreateDto;
-import com.lcode.demo_park_api.web.dto.TipoOcorrenciaResponseDto;
+import com.lcode.demo_park_api.web.dto.tipo_ocorrencia.TipoOcorrenciaCreateDto;
+import com.lcode.demo_park_api.web.dto.tipo_ocorrencia.TipoOcorrenciaResponseDto;
 
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;

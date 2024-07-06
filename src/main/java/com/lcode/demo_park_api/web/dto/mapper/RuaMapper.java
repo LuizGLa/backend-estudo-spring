@@ -6,8 +6,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import com.lcode.demo_park_api.entity.Rua;
-import com.lcode.demo_park_api.web.dto.RuaCreateDto;
-import com.lcode.demo_park_api.web.dto.RuaResponseDto;
+import com.lcode.demo_park_api.web.dto.rua.RuaCreateDto;
+import com.lcode.demo_park_api.web.dto.rua.RuaResponseDto;
 
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
