@@ -17,6 +17,7 @@ public class DatabaseSeeder implements CommandLineRunner {
     public void run(String... args) throws Exception {
         if (usuarioRepository.count() == 0) {
             Usuario usuario1 = new Usuario();
+            usuario1.setName("Admin");
             usuario1.setUsername("admin@mail.com");
             usuario1.setPassword("$2a$10$H8J4WMuQdaDT4/4hzLG34uf9dGgmWDWR5WnsGWEmRjPpOPoYmFJR6");
             usuario1.setRole(Usuario.Role.ROLE_ADMIN);

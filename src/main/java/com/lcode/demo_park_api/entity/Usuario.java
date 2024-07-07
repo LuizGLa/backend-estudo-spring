@@ -13,6 +13,8 @@ import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -26,6 +28,9 @@ public class Usuario implements Serializable {
     @Column(name="id")
     private Long id;
 
+    @Column(name = "name", nullable = false, length = 100)
+    private String name;
+
     @Column(name="username", nullable = false, unique = true, length = 100)
     private String username;
 
@@ -37,10 +42,12 @@ public class Usuario implements Serializable {
     private Role role;
 
     @CreatedDate
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss")
     @Column(name="data_criacao")
     private LocalDateTime dataCriacao;
 
     @LastModifiedDate
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss")
     @Column(name="data_atualizacao")
     private LocalDateTime dataAtualizacao;
 

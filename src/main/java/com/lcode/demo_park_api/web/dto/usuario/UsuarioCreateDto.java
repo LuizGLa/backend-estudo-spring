@@ -16,6 +16,8 @@ import lombok.ToString;
 @ToString
 public class UsuarioCreateDto {
 
+    private String name;
+
     @NotBlank
     @Email(regexp = ".+@.+\\..+", message = "O email deve ser válido")
     private String username;

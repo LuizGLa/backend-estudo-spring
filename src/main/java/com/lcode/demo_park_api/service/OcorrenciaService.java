@@ -35,11 +35,12 @@ public class OcorrenciaService {
                 () -> new EntityNotFoundException(String.format("Ocorrencia id=%s não encontrado", id)));
     }
 
+
     @Transactional(readOnly = true)
     public List<Ocorrencia> buscarTodos() {
-        return ocorrenciaRepository.findAll();
+        List<Ocorrencia> ocorrencias = ocorrenciaRepository.findAll();
+        return ocorrencias;
     }
-
     @Transactional
     public void deletar(Long id) {
         ocorrenciaRepository.deleteById(id);
