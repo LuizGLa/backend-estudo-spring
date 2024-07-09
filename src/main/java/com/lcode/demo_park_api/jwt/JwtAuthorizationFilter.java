@@ -39,13 +39,14 @@ public class JwtAuthorizationFilter extends OncePerRequestFilter {
         }
 
         String username = JwtUtils.getUsernameFromToken(token);
+        Long userId = JwtUtils.getUserIdFromToken(token);
 
-        toAuthentication(request, username);
+        toAuthentication(request, username, userId);
 
         filterChain.doFilter(request, response);
     }
 
-    private void toAuthentication(HttpServletRequest request, String username) {
+    private void toAuthentication(HttpServletRequest request, String username, Long userId) {
         UserDetails userDetails = detailsService.loadUserByUsername(username);
 
         UsernamePasswordAuthenticationToken authenticationToken = UsernamePasswordAuthenticationToken
@@ -54,5 +55,6 @@ public class JwtAuthorizationFilter extends OncePerRequestFilter {
         authenticationToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
 
         SecurityContextHolder.getContext().setAuthentication(authenticationToken);
+        request.setAttribute("userId", userId); // Armazena o ID do usuário na requisição para uso posterior
     }
 }
