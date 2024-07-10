@@ -1,5 +1,6 @@
 package com.lcode.demo_park_api.service;
 
+import com.lcode.demo_park_api.entity.Rua;
 import com.lcode.demo_park_api.entity.Usuario;
 import com.lcode.demo_park_api.exception.EntityNotFoundException;
 import com.lcode.demo_park_api.exception.PasswordInvalidException;
@@ -61,6 +62,22 @@ public class UsuarioService {
     public Usuario buscarPorUsername(String username) {
         return usuarioRepository.findByUsername(username).orElseThrow(
                 () -> new EntityNotFoundException(String.format("Usuario com '%s' não encontrado", username)));
+    }
+
+    @Transactional
+    public Usuario atualizar(Long id, Usuario usuarioAtualizado) {
+        Usuario usuario = usuarioRepository.findById(id).orElseThrow(
+                () -> new EntityNotFoundException(String.format("Usuario id=%s não encontrado", id)));
+        usuario.setName(usuarioAtualizado.getName());
+
+        return usuarioRepository.save(usuario);
+    }
+
+    @Transactional
+    public void deletar(Long id) {
+        Usuario usuario = buscarPorId(id);
+        usuarioRepository.deleteOcorrenciasByUsuarioId(id);
+        usuarioRepository.deleteById(id);
     }
 
     @Transactional(readOnly = true)
