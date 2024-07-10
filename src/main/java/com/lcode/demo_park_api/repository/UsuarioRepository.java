@@ -20,5 +20,5 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
     @Modifying
     @Transactional
     @Query("DELETE FROM Ocorrencia o WHERE o.usuario.id = :usuarioId")
-    void deleteOcorrenciasByUsuarioId(Long ruaId);
+    void deleteOcorrenciasByUsuarioId(Long usuarioId);
 }
