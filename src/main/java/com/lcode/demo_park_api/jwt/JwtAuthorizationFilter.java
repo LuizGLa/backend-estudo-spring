@@ -24,6 +24,11 @@ public class JwtAuthorizationFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
             throws ServletException, IOException {
 
+        if (isSwaggerRequest(request)) {
+            filterChain.doFilter(request, response);
+            return;
+        }
+
         final String token = request.getHeader(JwtUtils.JWT_AUTHORIZATION);
 
         if (token == null || !token.startsWith(JwtUtils.JWT_BEARER)) {
@@ -44,6 +49,11 @@ public class JwtAuthorizationFilter extends OncePerRequestFilter {
         toAuthentication(request, username, userId);
 
         filterChain.doFilter(request, response);
+    }
+
+    private boolean isSwaggerRequest(HttpServletRequest request) {
+        String path = request.getServletPath();
+        return path.startsWith("/swagger-ui/") || path.startsWith("/v3/api-docs/");
     }
 
     private void toAuthentication(HttpServletRequest request, String username, Long userId) {
