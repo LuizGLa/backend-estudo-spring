@@ -20,6 +20,7 @@ public class TipoOcorrenciaService {
 
     private final TipoOcorrenciaRepository tipoOcorrenciaRepository;
 
+
     @Transactional
     public TipoOcorrencia salvar(TipoOcorrencia tipoOcorrencia) {
         try {
@@ -43,9 +44,10 @@ public class TipoOcorrenciaService {
 
     @Transactional
     public void deletar(Long id) {
+        TipoOcorrencia tipoOcorrencia = buscarPorId(id);
+        tipoOcorrenciaRepository.deleteOcorrenciasByTipoOcorrenciaId(id);
         tipoOcorrenciaRepository.deleteById(id);
     }
-
     @Transactional
     public TipoOcorrencia atualizar(Long id, TipoOcorrencia tipoOcorrenciaAtualizado) {
         TipoOcorrencia tipoOcorrenciaExistente = tipoOcorrenciaRepository.findById(id).orElseThrow(

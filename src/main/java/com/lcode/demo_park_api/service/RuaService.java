@@ -43,8 +43,11 @@ public class RuaService {
 
     @Transactional
     public void deletar(Long id) {
+        Rua rua = buscarPorId(id);
+        ruaRepository.deleteOcorrenciasByRuaId(id);
         ruaRepository.deleteById(id);
     }
+
 
     @Transactional
     public Rua atualizar(Long id, Rua ruaAtualizada) {
