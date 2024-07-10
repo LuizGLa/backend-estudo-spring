@@ -8,8 +8,6 @@ O Ocorre Map é um sistema desenvolvido em Spring Boot 3 para gerenciar ocorrên
 
  - Certifique-se de ter o PostgreSQL instalado localmente.
  - Crie um banco de dados com o nome ocorre_map.
- - Após configurar o ambiente, você pode iniciar o servidor de desenvolvimento Angular usando o seguinte comando: 
-   ng serve.
  - Verifique se as credenciais de acesso (username e password) estão corretamente configuradas no arquivo application.properties:
 
    spring.datasource.url=jdbc:postgresql://localhost:5432/ocorre_map
