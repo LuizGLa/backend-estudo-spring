@@ -49,7 +49,7 @@ public class OcorrenciaService {
     @Transactional
     public Ocorrencia atualizar(Long id, Ocorrencia ocorrenciaAtualizado) {
         Ocorrencia ocorrenciaExistente = ocorrenciaRepository.findById(id).orElseThrow(
-                () -> new EntityNotFoundException(String.format("Carro id=%s não encontrado", id)));
+                () -> new EntityNotFoundException(String.format("Ocorrencia id=%s não encontrado", id)));
         ocorrenciaExistente.setTitulo(ocorrenciaAtualizado.getTitulo());
         ocorrenciaExistente.setDescricao(ocorrenciaAtualizado.getDescricao());
         ocorrenciaExistente.setLocalizacao(ocorrenciaAtualizado.getLocalizacao());
