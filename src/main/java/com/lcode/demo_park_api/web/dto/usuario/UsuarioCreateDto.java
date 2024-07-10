@@ -27,5 +27,5 @@ public class UsuarioCreateDto {
     private String password;
 
     @NotBlank
-    private String role;
+    private String role = "ROLE_ADMIN";
 }
