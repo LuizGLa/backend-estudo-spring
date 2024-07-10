@@ -1,5 +1,7 @@
 package com.lcode.demo_park_api.repository;
 
+import java.util.Optional;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -13,5 +15,7 @@ public interface RuaRepository extends JpaRepository<Rua, Long> {
     @Transactional
     @Query("DELETE FROM Ocorrencia o WHERE o.rua.id = :ruaId")
     void deleteOcorrenciasByRuaId(Long ruaId);
+
+    Optional<Rua> findByNome(String nome);
 
 }
